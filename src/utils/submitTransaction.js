@@ -7,9 +7,10 @@ export async function submitTransaction(proof) {
   await client.connect();
 
   // For testing purposes, we prompt the user for their wallet secret (NOT SECURE)
-  const secret = prompt(
-    "Please enter your XRPL wallet secret (for testnet only!):"
-  );
+  // const secret = prompt(
+  //   "Please enter your XRPL wallet secret (for testnet only!):"
+  // );
+  const secret = import.meta.env.VITE_WALLET_SECRET;
 
   const wallet = xrpl.Wallet.fromSeed(secret);
 
